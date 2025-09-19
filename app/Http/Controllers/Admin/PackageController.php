@@ -20,14 +20,42 @@ class PackageController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {}
+    public function create()
+    {
+        return view('admin.packages.create');
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'duration' => 'required|string',
+            'price' => 'required|numeric',
+            'description' => 'nullable|string',
+            'hotel_madinah' => 'nullable|string',
+            'hotel_makkah' => 'nullable|string',
+            'airline' => 'nullable|string',
+            'transportation' => 'nullable|string',
+            'image' => 'nullable|url',
+            'total_quota' => 'nullable|integer',
+            'remaining_quota' => 'nullable|integer',
+            'visa_type' => 'nullable|string',
+            'room_type' => 'nullable|string',
+            'meal_type' => 'nullable|string',
+            'departure_city' => 'nullable|string',
+            'departure_date' => 'nullable|date',
+            'return_date' => 'nullable|date',
+            'guide_name' => 'nullable|string',
+            'is_popular' => 'nullable|boolean',
+            'notes' => 'nullable|string',
+        ]);
+
+        $package = Package::create($validated);
+        return redirect()->route('packages.index')
+            ->with('success', 'Paket berhasil ditambahkan.');
     }
 
     /**
