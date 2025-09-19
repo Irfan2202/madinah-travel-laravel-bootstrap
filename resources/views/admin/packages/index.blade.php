@@ -7,7 +7,6 @@
                 <h3 class="mb-3">Daftar Paket</h3>
             </div>
         </div>
-
         <div class="app-content">
             <div class="container-fluid">
                 <div class="card">
@@ -23,8 +22,6 @@
                             </button>
                         </div>
                     </div>
-                    <!-- /.card-header -->
-
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
                             <thead>
@@ -80,7 +77,27 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                                            <a href="#" class="btn btn-sm btn-primary" title="Detail">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a href="{{ route('packages.edit', $package->id) }}"
+                                                class="btn btn-sm btn-success" title="Edit">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <a href="{{ route('packages.destroy', $package->id) }}"
+                                                class="btn btn-sm btn-danger" title="Hapus"
+                                                onclick="event.preventDefault();
+        if(confirm('Apakah Anda yakin ingin menghapus paket ini?')) {
+            document.getElementById('delete-form-{{ $package->id }}').submit();
+        }"><i
+                                                    class="bi bi-trash"></i>
+                                            </a>`
+                                            <form id="delete-form-{{ $package->id }}"
+                                                action="{{ route('packages.destroy', $package->id) }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty
@@ -91,9 +108,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- card-body -->
-
-
                 </div>
             </div>
         </div>
