@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Package;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PackageController extends Controller
 {
@@ -12,7 +13,8 @@ class PackageController extends Controller
      */
     public function index()
     {
-        //
+        $packages = Package::all();
+        return view('admin.packages.index', compact('packages'));
     }
 
     /**

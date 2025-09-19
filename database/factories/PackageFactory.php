@@ -14,8 +14,8 @@ class PackageFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    
-    
+
+
     public function definition(): array
     {
         return [
@@ -41,6 +41,5 @@ class PackageFactory extends Factory
             'guide_name' => $this->faker->name,
             'is_popular' => $this->faker->boolean(),
         ];
-    }
     }
 }
