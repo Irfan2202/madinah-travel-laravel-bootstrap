@@ -11,7 +11,6 @@
                  </p>
              </div>
          </div>
-
          <div class="row g-4 mb-5">
              <div class="col-lg-4">
                  <div class="card package-card h-100">
@@ -202,7 +201,6 @@
                  </div>
              </div>
          </div>
-
          <div class="row">
              <div class="col-lg-8 mx-auto">
                  <div class="card bg-light border-0 p-4 text-center">
@@ -211,7 +209,7 @@
                          Kami juga melayani paket khusus sesuai permintaan Anda. Hubungi tim kami untuk
                          konsultasi dan penawaran terbaik.
                      </p>
-                     <button class="btn btn-outline-gold" onclick="customConsultation()">
+                     <button class="btn btn-outline-gold">
                          Konsultasi Gratis
                      </button>
                  </div>
