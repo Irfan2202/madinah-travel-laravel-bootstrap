@@ -1,4 +1,4 @@
- <section id="packages" class="section-padding">
+ <section id="packages" class="section-packages " id="packages">
      <div class="container">
          <div class="row">
              <div class="col-lg-8 mx-auto text-center mb-5">

@@ -1,4 +1,4 @@
- <section id="testimonials" class="section-padding bg-light">
+ <section id="testimonials" class="section-testimonials " id="testimonials">
      <div class="container">
          <div class="row">
              <div class="col-lg-8 mx-auto text-center mb-5">

@@ -1,4 +1,4 @@
- <section id="about" class="section-padding bg-light">
+ <section id="about" class="section-about " id="about">
      <div class="container">
          <div class="row">
              <div class="col-lg-8 mx-auto text-center mb-5">

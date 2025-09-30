@@ -39,7 +39,7 @@
                  </button>
                  <button class="btn btn-gold btn-sm rounded-pill" onclick="callPhone()">
                      <i class="bi bi-telephone-fill me-1"></i>
-                     Hubungi Kami
+                     Masuk / Daftar
                  </button>
              </div>
          </div>

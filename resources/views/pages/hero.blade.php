@@ -22,14 +22,11 @@
              <p class="hero-subtitle">Bersama Al-Madinah Travel, perjalanan spiritual Anda akan terjamin nyaman dan
                  khusyuk</p>
              <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                 <button class="btn btn-gold btn-lg px-4 rounded-pill" onclick="contactWhatsApp()">
+                 <button class="btn btn-gold btn-lg px-4 rounded-pill">
                      <i class="bi bi-whatsapp me-2"></i>
                      Konsultasi WhatsApp
                  </button>
-                 <button class="btn btn-outline-light btn-lg px-4 rounded-pill" onclick="callPhone()">
-                     <i class="bi bi-telephone-fill me-2"></i>
-                     Hubungi Sekarang
-                 </button>
+                 <button class="btn btn-outline-light btn-lg px-4 rounded-pill">Lihat Layanan </button>
              </div>
          </div>
 

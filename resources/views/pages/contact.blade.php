@@ -1,4 +1,4 @@
- <section id="contact" class="section-padding">
+ <section id="contact" class="section-contact " id="contact">
      <div class="container">
          <div class="row">
              <div class="col-lg-8 mx-auto text-center mb-5">
