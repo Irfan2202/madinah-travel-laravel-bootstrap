@@ -19,27 +19,25 @@ class PackageFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->randomElement(['Umroh Ekonomi', 'Umroh VIP', 'Haji Reguler']),
-            'duration' => $this->faker->randomElement(['10 Hari 9 Malam', '12 Hari 11 Malam', '35 Hari']),
-            'price' => $this->faker->randomElement([25000000, 45000000, 65000000]),
-            'description' => $this->faker->sentence(10),
-            'hotel_madinah' => $this->faker->company . ' Hotel Madinah',
-            'hotel_makkah' => $this->faker->company . ' Hotel Makkah',
-            'airline' => $this->faker->randomElement(['Garuda Indonesia', 'Saudi Airlines', 'Emirates']),
-            'transportation' => $this->faker->randomElement(['Bus AC', 'Kereta Cepat', 'Private Bus']),
-            'image' => $this->faker->imageUrl(800, 600, 'travel'),
+            // Detail Paket (dari Gambar 2)
+            'title' => 'UMROH PENUH MAKNA 2X JUMAT + THAIF',
+            'price_quad' => 32600000.00,
+            'price_triple' => 34700000.00, // Contoh
+            'price_double' => 38300000.00, // Contoh
 
-            'total_quota' => $this->faker->numberBetween(20, 100),
-            'remaining_quota' => $this->faker->numberBetween(1, 50),
+            // Detail Perjalanan (dari Gambar 1 & 2)
+            // 'departure_date' akan diisi di Seeder
+            'duration_days' => 10,
+            'hotel_stars' => 4,
 
-            'visa_type' => $this->faker->randomElement(['Umrah', 'Haji']),
-            'room_type' => $this->faker->randomElement(['Quad', 'Triple', 'Double']),
-            'meal_type' => $this->faker->randomElement(['Buffet Premium', '3x Sehari']),
-            'departure_city' => $this->faker->randomElement(['Jakarta', 'Surabaya', 'Medan']),
-            'departure_date' => $this->faker->date(),
-            'return_date' => $this->faker->date(),
-            'guide_name' => $this->faker->name,
-            'is_popular' => $this->faker->boolean(),
+            // Kapasitas
+            'total_seats' => 39,
+            'available_seats' => 39,
+
+            // Informasi Keberangkatan
+            'departure_location' => 'JAKARTA',
+            'airline' => 'SAUDIA',
+            'flight_route' => 'CGK-MED, JED-CGK, LANDING MADINAH',
         ];
     }
 }

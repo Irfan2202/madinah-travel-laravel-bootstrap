@@ -23,7 +23,7 @@
                      <a href="#" class="nav-link active">
                          <i class="nav-icon bi bi-speedometer"></i>
                          <p>
-                             Daftar Paket Umroh dan Haji
+                             Daftar Paket Umroh
                              <i class="nav-arrow bi bi-chevron-right"></i>
                          </p>
                      </a>

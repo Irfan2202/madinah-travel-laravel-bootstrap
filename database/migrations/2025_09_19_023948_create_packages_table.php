@@ -13,26 +13,18 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('duration');
-            $table->decimal('price', 10, 2);
-            $table->text('description')->nullable();
-            $table->string('hotel_madinah')->nullable();
-            $table->string('hotel_makkah')->nullable();
+            $table->string('title');
+            $table->decimal('price_quad', 10, 2);
+            $table->decimal('price_triple', 10, 2)->nullable();
+            $table->decimal('price_double', 10, 2)->nullable();
+            $table->date('departure_date');
+            $table->integer('duration_days');
+            $table->integer('hotel_stars');
+            $table->integer('total_seats');
+            $table->integer('available_seats');
+            $table->string('departure_location');
             $table->string('airline')->nullable();
-            $table->string('transportation')->nullable();
-            $table->string('image')->nullable();
-            $table->integer('total_quota')->nullable();
-            $table->integer('remaining_quota')->nullable();
-            $table->string('visa_type')->nullable();
-            $table->string('room_type')->nullable();
-            $table->string('meal_type')->nullable();
-            $table->string('departure_city')->nullable();
-            $table->date('departure_date')->nullable();
-            $table->date('return_date')->nullable();
-            $table->string('guide_name')->nullable();
-            $table->boolean('is_popular')->default(false);
-            $table->text('notes')->nullable();
+            $table->string('flight_route')->nullable();
             $table->timestamps();
         });
     }
