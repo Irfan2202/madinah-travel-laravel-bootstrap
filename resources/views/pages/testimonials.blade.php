@@ -5,7 +5,7 @@
                  <h2 class="display-4 fw-bold mb-4">
                      Testimoni <span class="text-gold">Jamaah Kami</span>
                  </h2>
-                 <p class="lead text-muted">
+                 <p class="lead">
                      Dengarkan pengalaman spiritual dan kepuasan jamaah yang telah mempercayakan
                      perjalanan haji dan umroh mereka bersama Al-Madinah Travel.
                  </p>

@@ -6,7 +6,7 @@
              </div>
              <div>
                  <div class="fw-bold fs-5">Al-Madinah Travel</div>
-                 <small class="text-muted">Travel Haji & Umroh</small>
+                 <small>Travel Haji & Umroh</small>
              </div>
          </a>
 

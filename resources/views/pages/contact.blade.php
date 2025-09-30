@@ -5,7 +5,7 @@
                  <h2 class="display-4 fw-bold mb-4">
                      Hubungi <span class="text-gold">Kami</span>
                  </h2>
-                 <p class="lead text-muted">
+                 <p class="lead">
                      Tim profesional kami siap membantu Anda merencanakan perjalanan spiritual yang berkesan.
                      Hubungi kami untuk konsultasi gratis dan informasi lebih lanjut.
                  </p>

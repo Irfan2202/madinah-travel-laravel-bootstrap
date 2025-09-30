@@ -5,7 +5,7 @@
                  <h2 class="display-4 fw-bold mb-4">
                      Pilihan Paket <span class="text-gold">Haji & Umroh</span>
                  </h2>
-                 <p class="lead text-muted">
+                 <p class="lead text">
                      Tersedia berbagai pilihan paket yang disesuaikan dengan kebutuhan dan budget Anda.
                      Semua paket sudah termasuk visa, tiket, hotel, dan bimbingan spiritual.
                  </p>

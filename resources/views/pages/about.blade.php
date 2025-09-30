@@ -5,7 +5,7 @@
                  <h2 class="display-4 fw-bold mb-4">
                      Mengapa Memilih <span class="text-gold">Al-Madinah Travel?</span>
                  </h2>
-                 <p class="lead text-muted">
+                 <p class="lead">
                      Dengan pengalaman lebih dari 15 tahun, kami telah melayani ribuan jamaah untuk menunaikan
                      ibadah haji dan umroh dengan pelayanan terbaik dan fasilitas yang nyaman.
                  </p>
