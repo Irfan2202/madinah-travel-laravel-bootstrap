@@ -3,7 +3,7 @@
 @section('content')
     @include('pages.hero')
     @include('pages.about')
-    @include('pages.packages')
+    @include('pages.packages.index')
     @include('pages.testimonials')
     @include('pages.contact')
 @endsection

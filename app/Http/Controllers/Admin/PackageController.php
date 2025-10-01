@@ -31,39 +31,24 @@ class PackageController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string',
-            'duration' => 'required|string',
-            'price' => 'required|numeric',
-            'description' => 'nullable|string',
-            'hotel_madinah' => 'nullable|string',
-            'hotel_makkah' => 'nullable|string',
-            'airline' => 'nullable|string',
-            'transportation' => 'nullable|string',
-            'image' => 'nullable|url',
-            'total_quota' => 'nullable|integer',
-            'remaining_quota' => 'nullable|integer',
-            'visa_type' => 'nullable|string',
-            'room_type' => 'nullable|string',
-            'meal_type' => 'nullable|string',
-            'departure_city' => 'nullable|string',
-            'departure_date' => 'nullable|date',
-            'return_date' => 'nullable|date',
-            'guide_name' => 'nullable|string',
-            'is_popular' => 'nullable|boolean',
-            'notes' => 'nullable|string',
+            'title'              => 'required|string',
+            'price_quad'         => 'required|numeric',
+            'price_triple'       => 'nullable|numeric',
+            'price_double'       => 'nullable|numeric',
+            'departure_date'     => 'required|date',
+            'duration_days'      => 'required|integer',
+            'hotel_stars'        => 'required|integer',
+            'total_seats'        => 'required|integer',
+            'available_seats'    => 'required|integer',
+            'departure_location' => 'required|string',
+            'airline'            => 'nullable|string',
+            'flight_route'       => 'nullable|string',
         ]);
 
-        $package = Package::create($validated);
+        Package::create($validated);
+
         return redirect()->route('packages.index')
             ->with('success', 'Paket berhasil ditambahkan.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -81,31 +66,22 @@ class PackageController extends Controller
     public function update(Request $request, $id)
     {
         $package = Package::findOrFail($id);
+
         $validated = $request->validate([
-            'name' => 'required|string',
-            'duration' => 'required|string',
-            'price' => 'required|numeric',
-            'description' => 'nullable|string',
-            'hotel_madinah' => 'nullable|string',
-            'hotel_makkah' => 'nullable|string',
-            'airline' => 'nullable|string',
-            'transportation' => 'nullable|string',
-            'image' => 'nullable|url',
-            'total_quota' => 'nullable|integer',
-            'remaining_quota' => 'nullable|integer',
-            'visa_type' => 'nullable|string',
-            'room_type' => 'nullable|string',
-            'meal_type' => 'nullable|string',
-            'departure_city' => 'nullable|string',
-            'departure_date' => 'nullable|date',
-            'return_date' => 'nullable|date',
-            'guide_name' => 'nullable|string',
-            'is_popular' => 'nullable|boolean',
-            'notes' => 'nullable|string',
+            'title'              => 'required|string',
+            'price_quad'         => 'required|numeric',
+            'price_triple'       => 'nullable|numeric',
+            'price_double'       => 'nullable|numeric',
+            'departure_date'     => 'required|date',
+            'duration_days'      => 'required|integer',
+            'hotel_stars'        => 'required|integer',
+            'total_seats'        => 'required|integer',
+            'available_seats'    => 'required|integer',
+            'departure_location' => 'required|string',
+            'airline'            => 'nullable|string',
+            'flight_route'       => 'nullable|string',
         ]);
 
-        // cek checkbox populer
-        $validated['is_popular'] = $request->has('is_popular');
         $package->update($validated);
 
         return redirect()->route('packages.index')
@@ -115,7 +91,7 @@ class PackageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $package = Package::findOrFail($id);
         $package->delete();

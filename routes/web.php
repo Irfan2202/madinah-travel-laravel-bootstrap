@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\PackageController;
 use Phiki\Phast\Root;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\PackageController;
 
 Route::get('/', function () {
     return view('index');
@@ -15,3 +16,4 @@ Route::get('/admin/dashboard', function () {
 Route::resource('admin/packages', PackageController::class);
 Route::get('/admin/packages/edit/{id}', [PackageController::class, 'edit'])->name('packages.edit');
 Route::put('/admin/packages/update/{id}', [PackageController::class, 'update'])->name('packages.update');
+Route::get('/', [HomeController::class, 'index'])->name('home');
