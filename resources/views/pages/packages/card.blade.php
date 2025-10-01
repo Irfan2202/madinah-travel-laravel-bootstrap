@@ -48,9 +48,11 @@
                     </small>
                 </div>
             </div>
+            <a href="{{ route('packages.detail', $package->id) }}" class="btn btn-primary">
+                Lihat Detail
+            </a>
 
-            <button class="btn btn-outline-dark w-100"
-                onclick="bookPackage('{{ $package->title }}', '{{ $package->duration_days }} Hari', 'Rp {{ number_format($package->price_quad, 0, ',', '.') }}')">
+            <button class="btn btn-outline-dark w-100">
                 Pesan Sekarang via WhatsApp
             </button>
         </div>

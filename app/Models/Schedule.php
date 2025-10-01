@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use App\Models\Schedule;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Package extends Model
+class Schedule extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function schedules()
+    public function package()
     {
-        return $this->hasMany(Schedule::class);
+        return $this->belongsTo(Package::class);
     }
 }

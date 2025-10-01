@@ -18,7 +18,7 @@
                      <div class="card bg-light border-0 p-4 mb-4">
                          <h4 class="fw-bold mb-4">Informasi Kontak</h4>
 
-                         <div class="contact-info-item mb-3" onclick="callPhone()">
+                         <div class="contact-info-item mb-3">
                              <div class="d-flex align-items-center">
                                  <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.25rem;">
                                      <i class="bi bi-telephone-fill"></i>
@@ -42,7 +42,7 @@
                              </div>
                          </div>
 
-                         <div class="contact-info-item mb-3" onclick="sendEmail()">
+                         <div class="contact-info-item mb-3">
                              <div class="d-flex align-items-center">
                                  <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.25rem;">
                                      <i class="bi bi-envelope-fill"></i>
@@ -129,13 +129,13 @@
                      <h4 class="fw-bold mb-4">Butuh Respon Cepat?</h4>
                      <div class="row g-3">
                          <div class="col-md-6">
-                             <button class="btn btn-success btn-lg w-100" onclick="contactWhatsApp()">
+                             <button class="btn btn-success btn-lg w-100">
                                  <i class="bi bi-whatsapp me-2"></i>
                                  Chat WhatsApp Sekarang
                              </button>
                          </div>
                          <div class="col-md-6">
-                             <button class="btn btn-outline-gold btn-lg w-100" onclick="callPhone()">
+                             <button class="btn btn-outline-gold btn-lg w-100">
                                  <i class="bi bi-telephone-fill me-2"></i>
                                  Telepon Langsung
                              </button>

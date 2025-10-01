@@ -17,3 +17,4 @@ Route::resource('admin/packages', PackageController::class);
 Route::get('/admin/packages/edit/{id}', [PackageController::class, 'edit'])->name('packages.edit');
 Route::put('/admin/packages/update/{id}', [PackageController::class, 'update'])->name('packages.update');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/packages/{package}', [HomeController::class, 'detail'])->name('packages.detail');

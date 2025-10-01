@@ -110,11 +110,11 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="d-flex flex-column flex-sm-row gap-2">
-                        <button class="btn btn-dark" onclick="contactWhatsApp()">
+                        <button class="btn btn-dark">
                             <i class="bi bi-whatsapp me-1"></i>
                             WhatsApp
                         </button>
-                        <button class="btn btn-outline-dark" onclick="callPhone()">
+                        <button class="btn btn-outline-dark">
                             <i class="bi bi-telephone-fill me-1"></i>
                             Telepon
                         </button>
