@@ -3,6 +3,7 @@
 use Phiki\Phast\Root;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Admin\PackageController;
 
 Route::get('/', function () {
@@ -18,3 +19,8 @@ Route::get('/admin/packages/edit/{id}', [PackageController::class, 'edit'])->nam
 Route::put('/admin/packages/update/{id}', [PackageController::class, 'update'])->name('packages.update');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/packages/{package}', [HomeController::class, 'detail'])->name('packages.detail');
+// routes/web.php
+
+// Rute untuk Pemesanan (mengikuti convention RESTful)
+Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
