@@ -2,32 +2,22 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
-use App\Models\Package;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Package;
+use App\Models\Price;
 
 class PackageSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        Package::factory()->create([
-            'departure_date' => Carbon::create(2025, 10, 30)->toDateString(),
-            'title' => 'UMROH PENUH MAKNA (Keberangkatan 30 Oktober)',
-        ]);
+        // Buat 3 paket umroh
+        Package::factory()->count(3)->create();
 
-
-        Package::factory()->create([
-            'departure_date' => Carbon::create(2025, 11, 13)->toDateString(),
-            'title' => 'UMROH PENUH MAKNA (Keberangkatan 13 November)',
-        ]);
-
-        Package::factory()->create([
-            'departure_date' => Carbon::create(2025, 11, 30)->toDateString(),
-            'title' => 'UMROH PENUH MAKNA (Keberangkatan 30 November)',
+        // Buat harga global (tidak terkait ke package)
+        Price::insert([
+            ['type' => 'QUAD', 'price' => 32600000, 'created_at' => now(), 'updated_at' => now()],
+            ['type' => 'TRIPLE', 'price' => 34700000, 'created_at' => now(), 'updated_at' => now()],
+            ['type' => 'DOUBLE', 'price' => 38300000, 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
