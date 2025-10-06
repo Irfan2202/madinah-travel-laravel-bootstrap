@@ -12,8 +12,15 @@
             </div>
         </div>
         <div class="row g-4 mb-5">
-
+            @forelse ($packages as $package)
+                @include('pages.packages.card', ['package' => $package])
+            @empty
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">Belum ada paket tersedia.</p>
+                </div>
+            @endforelse
         </div>
+
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="card bg-light border-0 p-4 text-center">

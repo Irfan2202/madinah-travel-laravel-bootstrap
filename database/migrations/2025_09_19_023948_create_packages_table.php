@@ -20,11 +20,12 @@ return new class extends Migration
             $table->string('hotel_makkah')->nullable();
             $table->string('hotel_madinah')->nullable();
             $table->date('departure_date');
+            $table->date('return_date')->nullable(); // ✅ tambahkan ini
             $table->string('departure_day')->nullable();
             $table->integer('duration_days');
             $table->integer('hotel_stars');
             $table->integer('total_pax');
-            $table->integer('available_pax');
+            $table->integer('available_pax')->default(0);
             $table->string('departure_location');
             $table->string('airline')->nullable();
             $table->string('flight_route')->nullable();

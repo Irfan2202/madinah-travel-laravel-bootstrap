@@ -9,14 +9,5 @@ class Price extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'package_id',
-        'type',
-        'price',
-    ];
-
-    public function package()
-    {
-        return $this->belongsTo(Package::class);
-    }
+    protected $guarded = [];
 }

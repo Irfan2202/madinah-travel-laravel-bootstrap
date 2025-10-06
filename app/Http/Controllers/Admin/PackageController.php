@@ -3,23 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Package;
-use App\Models\Price;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PackageController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Tampilkan semua paket.
      */
     public function index()
     {
-        $packages = Package::with('prices')->get();
+        $packages = Package::latest()->get();
         return view('admin.packages.index', compact('packages'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Form tambah paket.
      */
     public function create()
     {
@@ -27,67 +26,47 @@ class PackageController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Simpan paket baru.
      */
     public function store(Request $request)
     {
         $validated = $request->validate([
             'title'              => 'required|string|max:255',
-            'image'              => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'image'              => 'nullable|string|max:255', // sementara string, bukan file
             'description'        => 'nullable|string',
             'guide_name'         => 'nullable|string|max:255',
             'hotel_makkah'       => 'nullable|string|max:255',
             'hotel_madinah'      => 'nullable|string|max:255',
             'departure_date'     => 'required|date',
+            'return_date'        => 'nullable|date|after_or_equal:departure_date',
             'departure_day'      => 'nullable|string|max:20',
-            'duration_days'      => 'required|integer',
-            'hotel_stars'        => 'required|integer',
-            'total_pax'          => 'required|integer',
-            'available_pax'      => 'required|integer',
+            'duration_days'      => 'required|integer|min:1',
+            'hotel_stars'        => 'required|integer|min:1|max:5',
+            'total_pax'          => 'required|integer|min:1',
+            'available_pax'      => 'required|integer|min:0',
             'departure_location' => 'required|string|max:255',
             'airline'            => 'nullable|string|max:255',
             'flight_route'       => 'nullable|string|max:255',
-            // harga
-            'price_quad'         => 'required|numeric',
-            'price_triple'       => 'nullable|numeric',
-            'price_double'       => 'nullable|numeric',
+
         ]);
 
-        // Simpan package
-        $packageData = collect($validated)->except(['price_quad', 'price_triple', 'price_double'])->toArray();
-
-        if ($request->hasFile('image')) {
-            $packageData['image'] = $request->file('image')->store('packages', 'public');
-        }
-
-        $package = Package::create($packageData);
-
-        // Simpan harga
-        if ($request->price_quad) {
-            Price::create(['package_id' => $package->id, 'tipe_kamar' => 'QUAD', 'harga' => $request->price_quad]);
-        }
-        if ($request->price_triple) {
-            Price::create(['package_id' => $package->id, 'tipe_kamar' => 'TRIPLE', 'harga' => $request->price_triple]);
-        }
-        if ($request->price_double) {
-            Price::create(['package_id' => $package->id, 'tipe_kamar' => 'DOUBLE', 'harga' => $request->price_double]);
-        }
+        Package::create($validated);
 
         return redirect()->route('packages.index')
             ->with('success', 'Paket berhasil ditambahkan.');
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Form edit paket.
      */
     public function edit($id)
     {
-        $package = Package::with('prices')->findOrFail($id);
+        $package = Package::findOrFail($id);
         return view('admin.packages.edit', compact('package'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update data paket.
      */
     public function update(Request $request, $id)
     {
@@ -95,64 +74,35 @@ class PackageController extends Controller
 
         $validated = $request->validate([
             'title'              => 'required|string|max:255',
-            'image'              => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'image'              => 'nullable|string|max:255',
             'description'        => 'nullable|string',
             'guide_name'         => 'nullable|string|max:255',
             'hotel_makkah'       => 'nullable|string|max:255',
             'hotel_madinah'      => 'nullable|string|max:255',
             'departure_date'     => 'required|date',
+            'return_date'        => 'nullable|date|after_or_equal:departure_date',
             'departure_day'      => 'nullable|string|max:20',
-            'duration_days'      => 'required|integer',
-            'hotel_stars'        => 'required|integer',
-            'total_pax'          => 'required|integer',
-            'available_pax'      => 'required|integer',
+            'duration_days'      => 'required|integer|min:1',
+            'hotel_stars'        => 'required|integer|min:1|max:5',
+            'total_pax'          => 'required|integer|min:1',
+            'available_pax'      => 'required|integer|min:0',
             'departure_location' => 'required|string|max:255',
             'airline'            => 'nullable|string|max:255',
             'flight_route'       => 'nullable|string|max:255',
-            // harga
-            'price_quad'         => 'required|numeric',
-            'price_triple'       => 'nullable|numeric',
-            'price_double'       => 'nullable|numeric',
         ]);
 
-        // Update package
-        $packageData = collect($validated)->except(['price_quad', 'price_triple', 'price_double'])->toArray();
-
-        if ($request->hasFile('image')) {
-            $packageData['image'] = $request->file('image')->store('packages', 'public');
-        }
-
-        $package->update($packageData);
-
-        // Update harga
-        $package->prices()->updateOrCreate(
-            ['tipe_kamar' => 'QUAD'],
-            ['harga' => $request->price_quad]
-        );
-        if ($request->price_triple) {
-            $package->prices()->updateOrCreate(
-                ['tipe_kamar' => 'TRIPLE'],
-                ['harga' => $request->price_triple]
-            );
-        }
-        if ($request->price_double) {
-            $package->prices()->updateOrCreate(
-                ['tipe_kamar' => 'DOUBLE'],
-                ['harga' => $request->price_double]
-            );
-        }
+        $package->update($validated);
 
         return redirect()->route('packages.index')
             ->with('success', 'Paket berhasil diperbarui.');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Hapus paket.
      */
     public function destroy($id)
     {
         $package = Package::findOrFail($id);
-        $package->prices()->delete(); // hapus harga dulu
         $package->delete();
 
         return redirect()->route('packages.index')
